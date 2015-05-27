@@ -1,8 +1,15 @@
+all: read interface counter noticias
+
 read: read/read.rb read/read.py read/read.go read/Read.java read/read.c
 
 interface: interfaces/inter.go
 
 counter: counter/counter1.go counter/counter2.go counter/counter3.go
+
+noticias: noticias/noticias1.go
+
+noticias_server:
+	go run noticias/noticias3.go
 
 */*.rb: .update
 	time ruby $@
@@ -24,4 +31,4 @@ counter: counter/counter1.go counter/counter2.go counter/counter3.go
 
 .update:
 
-.PHONY: .update read bench
+.PHONY: .update all read interface counter noticias
